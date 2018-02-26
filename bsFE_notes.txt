@@ -1,0 +1,16 @@
+BS Zelda MAP 1
+LoRom 1MB
+No copier header
+
+japanese stored in shift japanese
+manifest.bml is for higan
+bszelda.xml is for byuu
+
+==============
+= Free Space =
+==============
+Fe160/$1F:E160 to FFFFF/$1F:FFFF = 7839 bytes
+
+============================
+= JSL to $C70004 Locations =
+============================
