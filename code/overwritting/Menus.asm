@@ -2,14 +2,23 @@
 //Macro to insert "Wpn LVL" 
 //for Weapon level required
 //Used for every staff in the game
-macro Wpnleveldisp() {
+macro Wpnleveldisp(variable offset) {
+origin	offset
 //Wpn
 db	0x16,0x00,0x29,0x00,0x27,0x00
 //Space
 db	0xC2,0x00
 //LV code
 db	0x0B,0x00,0x15,0x00
+
+
+//This is valid code
+//origin	(offset+1000000)
+//nop
+
 }
+
+//Macro to 
 
 
 //Simple code to test if it compiled
@@ -143,43 +152,24 @@ db	0x11,0x00,0x1E,0x00,0x2C,0x00
 //Insert "Wpn LVL"Weapon level required
 //Need to this for every staff in the game
 origin 	$05E886
-Wpnleveldisp()
-origin 	$05E8B2
-Wpnleveldisp()
-origin 	$05E902
-Wpnleveldisp()
-origin 	$05E94C
-Wpnleveldisp()
-origin	$05E9B2
-Wpnleveldisp()
-origin	$05EA02
-Wpnleveldisp()
-origin	$05EA5C
-Wpnleveldisp()
-origin	$05EABC
-Wpnleveldisp()
-origin	$05EB18
-Wpnleveldisp()
-origin	$05EB78
-Wpnleveldisp()
-origin	$05EC2C
-Wpnleveldisp()
-origin	$05EC88
-Wpnleveldisp()
-origin	$05ECF4
-Wpnleveldisp()
-origin	$05EBD2
-Wpnleveldisp()
+Wpnleveldisp($05E8B2)
+Wpnleveldisp($05E902)
+Wpnleveldisp($05E94C)
+Wpnleveldisp($05E9B2)
+Wpnleveldisp($05EA02)
+Wpnleveldisp($05EA5C)
+Wpnleveldisp($05EABC)
+Wpnleveldisp($05EB18)
+Wpnleveldisp($05EB78)
+Wpnleveldisp($05EC2C)
+Wpnleveldisp($05EC88)
+Wpnleveldisp($05ECF4)
+Wpnleveldisp($05EBD2)
+Wpnleveldisp($05ED38)
+Wpnleveldisp($05ED90)
+Wpnleveldisp($05EDEA)
+Wpnleveldisp($05F136)
 
-
-origin	$05ED38
-Wpnleveldisp()
-origin	$05ED90
-Wpnleveldisp()
-origin	$05EDEA
-Wpnleveldisp()
-origin	$05F136
-Wpnleveldisp()
 
 
 //
