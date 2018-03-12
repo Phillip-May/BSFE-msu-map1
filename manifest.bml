@@ -1,34 +1,12 @@
-unverified
-
 cartridge region=NTSC
-  rom name=program.rom size=0x400000
-  ram name=save.ram size=0x2000
-  map id=rom address=00-7f,80-ff:8000-ffff mask=0x8000
-  map id=ram address=70-7f,f0-ff:0000-7fff
+  rom name=AUDIO.sfc size=0x8000
+  map id=rom address=00-3f,80-bf:8000-ffff
+  map id=rom address=40-7f,c0-ff:0000-ffff
 
   msu1
-    rom name=bszelda_ast1.msu size=0x0000
+    rom name=AUDIO.msu size=0
+    track number=0 name=AUDIO-0.pcm
     map id=io address=00-3f,80-bf:2000-2007
 
-    track number=1 name=bszelda_ast1-1.pcm
-    track number=2 name=bszelda_ast1-2.pcm
-    track number=3 name=bszelda_ast1-3.pcm
-    track number=4 name=bszelda_ast1-4.pcm
-
-
-unverified
-
-board region=ntsj
-  rom name=program.rom size=0x400000
-    map address=00-7f,80-ff:8000-ffff mask=0x8000
-  ram name=save.ram size=0x2000
-    map address=70-7f,f0-ff:0000-7fff
-
-  msu1
-    rom name=bszelda_ast1.msu size=0x0000
-    map address=00-3f,80-bf:2000-2007
-
-    track number=1 name=bszelda_ast1-1.pcm
-    track number=2 name=bszelda_ast1-2.pcm
-    track number=3 name=bszelda_ast1-3.pcm
-    track number=4 name=bszelda_ast1-4.pcm
+information
+  title: AUDIO

@@ -6,6 +6,11 @@ japanese stored in shift japanese
 manifest.bml is for higan
 bszelda.xml is for byuu
 
+checksum only looks at the first 8 megabits of information
+quick patch to the checksum patcher was in order
+
+After some testing, it appears to check in the folder the bios is located in. This seems a bit unintuitive but is workable. If this was documented somewhere and I missed it, I am sorry for bothering you. I tried looking at the auto generated manifest but that required me compiling a newer version of bsnes plus myself and I am really bad at setting up tool chains.
+
 ==============
 = Free Space =
 ==============

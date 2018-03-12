@@ -24,26 +24,9 @@
 
 arch snes.cpu
 
-// MSU memory map I/O
-constant MSU_STATUS($002000)
-constant MSU_ID($002002)
-constant MSU_AUDIO_TRACK_LO($002004)
-constant MSU_AUDIO_TRACK_HI($002005)
-constant MSU_AUDIO_VOLUME($002006)
-constant MSU_AUDIO_CONTROL($002007)
-
-// SPC communication ports
-constant SPC_COMM_0($2140)
-constant SPC_COMM_1($2141)
-constant SPC_COMM_2($2142)
-constant SPC_COMM_3($2143)
-
-// MSU_STATUS possible values
-constant MSU_STATUS_TRACK_MISSING($8)
-constant MSU_STATUS_AUDIO_PLAYING(%00010000)
-constant MSU_STATUS_AUDIO_REPEAT(%00100000)
-constant MSU_STATUS_AUDIO_BUSY($40)
-constant MSU_STATUS_DATA_BUSY(%10000000)
+include "LIB/SNES.INC"        // Include SNES Definitions
+include "LIB/SNES_SPC700.INC" // Include SPC700 Definitions & Macros
+include "LIB/SNES_MSU1.INC"   // Include MSU1 Definitions & Macros
 
 
 // =============
@@ -86,6 +69,11 @@ macro WaitDivResult() {
 	nop
 	nop
 }
+
+// =============
+// Msu-1 stuff
+// =============
+include "code\original\MSU-1Audio.asm"
 
 
 // =============

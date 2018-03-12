@@ -1,3 +1,6 @@
+//Notes about menu pointers
+//They are little edian and two bytes big.
+
 
 //Macro to insert "Wpn LVL" 
 //for Weapon level required
@@ -10,15 +13,24 @@ db	0x16,0x00,0x29,0x00,0x27,0x00
 db	0xC2,0x00
 //LV code
 db	0x0B,0x00,0x15,0x00
+//Fix E display for experience
+origin (offset+0x12)
+//Get rid of old placement for esperience symbol "E"
+db	0xC2,0x00,0xC2,0x00,0xC2,0x00,0xC2,0x00
+db	0xAD,0x00,0xAE,0x00
+//Fix Display for how much a staff heals
+origin (offset+0x24)
+//Mag+Heal constant
+//" Magic +"
+db	0xC2,0x00,0x0C,0x00,0x1A,0x00,0x20,0x00,0x22,0x00,0x1C,0x00,0xF4,0x00
 
+//Fix description for staffs
+//This is probably staff specific and I cant
+//Read what it says
 
-//This is valid code
-//origin	(offset+1000000)
-//nop
 
 }
 
-//Macro to 
 
 
 //Simple code to test if it compiled
@@ -170,11 +182,56 @@ Wpnleveldisp($05ED90)
 Wpnleveldisp($05EDEA)
 Wpnleveldisp($05F136)
 
+// =============
+// Character name
+// and class fixes
+// =============
 
+//For character names FF seems to be the termining byte
 
-//
+//Nyna
+//Fix name to "Nyna" + linebreak
+
+//Insert pointer to new text location for Nyna
+origin	$05D78A
+db	0x56,0xD8
+
+//Insert "Nyna"
+origin	$05D856
+db	0x0D,0x00,0x52,0x00,0x27,0x00,0x1A,0x00,0xFF,0xFF
+
+//Nyna class fix to "Bishop"
+origin	$05DEB8
+db	0x01,0x00,0x22,0x00,0x2C,0x00,0x21,0x00,0x28,0x00,0x29,0x00
+//Termination bytes
+db	0xFF,0xFF
+
+//Midia
+//Fix name to "Midia"
+//Insert it next to Nyna and then fix pointer
+//Pointer fix for name
+origin	$05D6B4
+db	0x60,0xD8
+
+//Insert "Midia"
+origin	$05D860
+db	0x0C,0x00,0x22,0x00,0x1D,0x00,0x22,0x00,0x1A,0x00
+//Termination bytes
+db	0xFF,0xFF
+
+//Pointer fix for class
+origin	$05DD60
+db	0xDE,0xDD
+
+//Insert "Paladin" for her class
+origin	$05DDDE
+db	0x0F,0x00,0x1A,0x00,0x25,0x00,0x1A,0x00,0x1D,0x00,0x22,0x00,0x27,0x00
+//Termination bytes
+db	0xFF,0xFF
+
+// =============
 // Misc other menu edits
-//
+// =============
 
 //Insert "Max HP"
 //Changing Borderless font for
