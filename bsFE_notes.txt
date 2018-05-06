@@ -1,15 +1,26 @@
-BS Zelda MAP 1
+BSFE MAP 1
 LoRom 1MB
 No copier header
 
 japanese stored in shift japanese
 manifest.bml is for higan
-bszelda.xml is for byuu
+romname.xml is for byuu
 
-checksum only looks at the first 8 megabits of information
-quick patch to the checksum patcher was in order
+checksum only looks at the information based on the header
 
-After some testing, it appears to check in the folder the bios is located in. This seems a bit unintuitive but is workable. If this was documented somewhere and I missed it, I am sorry for bothering you. I tried looking at the auto generated manifest but that required me compiling a newer version of bsnes plus myself and I am really bad at setting up tool chains.
+Aquick patch to the checksum patcher was in order
+dont worry about file error 4, I made a more adanced python 
+varient for non windows systems
+
+For video playback the 16bit NMI and IRQ interupts 
+will need to be hacked.
+
+Turns out NMI isnt needed and IRQ is dealt with through sram.
+that not cleared on initialisation.
+
+I now need to add a way to skip video and error detection in case
+the time is set wrong or the msu1 file is not dected.
+Skip video based on time or input
 
 ==============
 = Free Space =

@@ -28,6 +28,11 @@ include "LIB/SNES.INC"        // Include SNES Definitions
 include "LIB/SNES_SPC700.INC" // Include SPC700 Definitions & Macros
 include "LIB/SNES_MSU1.INC"   // Include MSU1 Definitions & Macros
 
+//Expand the rom up to 16 mega bits by placing cursor at end of file then back to
+//the start.
+origin 0x200000
+origin 0x000000
+
 
 // =============
 // = Variables =
